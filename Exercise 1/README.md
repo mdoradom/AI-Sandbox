@@ -1,5 +1,9 @@
 # Exercise 1
 
+![image_1](Resources\screenshot_1.png)
+
+![image_2](Resources\screenshot_2.png)
+
 > In this lab, you will create a Unity scene featuring two agents with different movement behaviors. The goal is to implement and demonstrate patrolling and wandering movements for AI agents.
 
 ## Scene Setup
