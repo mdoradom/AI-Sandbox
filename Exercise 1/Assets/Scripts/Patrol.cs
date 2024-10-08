@@ -4,7 +4,6 @@ using System.Collections;
 
 public class Patrol : MonoBehaviour
 {
-
     public Transform[] points;
     private int destPoint = 0;
     private NavMeshAgent agent;
@@ -23,6 +22,10 @@ public class Patrol : MonoBehaviour
         agent.autoBraking = enableAutoBraking;
         agent.acceleration = acceleration;
         agent.speed = speed;
+
+        // Randomly select an initial waypoint
+        destPoint = Random.Range(0, points.Length);
+        agent.destination = points[destPoint].position;
 
         GotoNextPoint();
     }
