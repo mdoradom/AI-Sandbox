@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e4b014022a99bc941b5594a6907bc2f4, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -356,12 +356,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 1733855665772604, guid: b0489fdb6d64a4a4ba8e194e561d60cd, type: 3}
-  numFish: 20
+  numFish: 100
   allFish: []
-  swimLimits: {x: 5, y: 5, z: 5}
+  swimLimits: {x: 10, y: 10, z: 10}
   goalPos: {x: 0, y: 0, z: 0}
-  minSpeed: 0
-  maxSpeed: 0
+  minSpeed: 5
+  maxSpeed: 5
   neighbourDistance: 1
   rotationSpeed: 1
 --- !u!4 &1544227920
