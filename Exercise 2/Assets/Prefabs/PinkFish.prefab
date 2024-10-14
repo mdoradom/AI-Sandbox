@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4325107133766104}
   - component: {fileID: 95713850578013842}
-  - component: {fileID: -5878325354298788214}
+  - component: {fileID: 7115269376637993968}
   m_Layer: 0
   m_Name: PinkFish
   m_TagString: Untagged
@@ -217,7 +217,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-5878325354298788214
+--- !u!114 &7115269376637993968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

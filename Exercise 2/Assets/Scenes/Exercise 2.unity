@@ -356,14 +356,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 1733855665772604, guid: b0489fdb6d64a4a4ba8e194e561d60cd, type: 3}
-  numFish: 100
+  leaderFishPrefab: {fileID: 1318662798089844, guid: 06a4036ceebb544e494c30d599b9d2c1, type: 3}
+  numFish: 500
+  numLeaderFish: 1
   allFish: []
+  leaderFish: []
   swimLimits: {x: 10, y: 10, z: 10}
   goalPos: {x: 0, y: 0, z: 0}
   minSpeed: 5
   maxSpeed: 5
   neighbourDistance: 1
-  rotationSpeed: 1
+  rotationSpeed: 5
+  leaderInfluence: 70
 --- !u!4 &1544227920
 Transform:
   m_ObjectHideFlags: 0
