@@ -26,3 +26,24 @@ Your scene should include a group of AI agents (boids) that demonstrate the foll
     - Explain the flocking rules you implemented (separation, alignment, cohesion).
     - Highlight how the "leader" boid interacts with the group.
     - Demonstrate scene creativity and optimized boid steering.
+ 
+## The Exercise
+
+You can download the Unity Package in this link. It should be a scene with ocean skybox.
+
+### Controls
+
+- Movement: WASD to move the camera
+- Up / Down: SPACE & CTRL to go up and down
+- Sprint: SHIFT to move faster
+
+### Requeriments
+
+- Unity 2022.3.33f1
+- Project with URP Core
+- AI Navigation package installed
+    
+### Autors
+ - [Mario Dorado Martínez](https://github.com/mdoradom)
+ - [Marta Jover valero](https://github.com/MartaGnarta)
+    
