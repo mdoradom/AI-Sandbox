@@ -1,59 +1,51 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    private CharacterController characterController;
     private Animator animator;
-
-    public float speed = 6.0f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
-    public float mouseSensitivity = 100.0f;
-    public float verticalLookLimit = 30.0f; // Limit for vertical look
-
-    private Vector3 moveDirection = Vector3.zero;
-    private float rotationX = 0.0f;
+    private NavMeshAgent agent;
 
     void Start()
     {
-        characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        Cursor.lockState = CursorLockMode.Locked; // Lock the cursor to the center of the screen
+        agent = GetComponent<NavMeshAgent>();
+
+        // Mover al jugador a una posición aleatoria en la NavMesh al inicio
+        MoveToRandomPosition();
     }
 
     void Update()
     {
-        // Get input for movement (WASD)
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        // Calculate movement direction
-        moveDirection = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= speed;
-
-        // Check for jump (SPACE)
-        if (Input.GetButton("Jump"))
+        // Verificar si el agente ha llegado a su destino
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
-            moveDirection.y = jumpSpeed;
+            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            {
+                // Mover al jugador a una nueva posición aleatoria
+                MoveToRandomPosition();
+            }
         }
+    }
 
-        // Apply gravity smoothly
-        moveDirection.y -= gravity * Time.deltaTime;
+    void MoveToRandomPosition()
+    {
+        Vector3 randomPosition = GetRandomPositionOnNavMesh();
+        if (randomPosition != Vector3.zero)
+        {
+            agent.SetDestination(randomPosition);
+        }
+    }
 
-        // Move the character
-        characterController.Move(moveDirection * Time.deltaTime);
-
-        // Get mouse input for looking around
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-        // Rotate the player around the Y axis
-        transform.Rotate(Vector3.up * mouseX);
-
-        // Rotate the camera around the X axis
-        rotationX -= mouseY;
-        rotationX = Mathf.Clamp(rotationX, -verticalLookLimit, verticalLookLimit); // Clamp the vertical rotation to the specified limit
-        Camera.main.transform.localRotation = Quaternion.Euler(rotationX, 0.0f, 0.0f);
+    Vector3 GetRandomPositionOnNavMesh()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * 50f; // Radio de búsqueda
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomDirection, out hit, 50f, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+        return Vector3.zero;
     }
 }

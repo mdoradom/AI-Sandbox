@@ -424,7 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 4719024263444132411, guid: cedc60c85330626459e7e7426841b28c,
     type: 3}
-  numberOfZombies: 10
+  numberOfZombies: 3
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,120 +474,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1247775690 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6613612820162385798, guid: 4dcfe744230e8c25483d25cb8bde7fef,
-    type: 3}
-  m_PrefabInstance: {fileID: 5107973994893802839}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &5098132253515736235
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2545368613054779726, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2545368613054779726, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2545368613054779726, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2545368613054779726, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4512437506599302586, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1247775690}
-    - target: {fileID: 4512437506599302586, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: mask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4719024263444132411, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_Name
-      value: Zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347610300251711617, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347610300251711617, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347610300251711617, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347610300251711617, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347610300251711617, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347610300251711617, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347610300251711617, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347610300251711617, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347610300251711617, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347610300251711617, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661193741382485299, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: far clip plane
-      value: 10.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661193741382485299, guid: cedc60c85330626459e7e7426841b28c,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cedc60c85330626459e7e7426841b28c, type: 3}
 --- !u!1001 &5107973994893802839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -705,6 +591,5 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 141291381}
-  - {fileID: 5098132253515736235}
   - {fileID: 5107973994893802839}
   - {fileID: 677415233}
