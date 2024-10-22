@@ -66,7 +66,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 10
-  field of view: 60.000004
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -263,6 +263,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   player: {fileID: 6613612820162385798, guid: 4dcfe744230e8c25483d25cb8bde7fef, type: 3}
+  animator: {fileID: 0}
 --- !u!4 &5347610300251711617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 232abe3d488e23ecc9f8399042b26b11,

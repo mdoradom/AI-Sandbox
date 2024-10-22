@@ -3,14 +3,23 @@ using UnityEngine.AI;
 
 public class ZombieMovement : MonoBehaviour
 {
-    public Camera frustum;   // Cámara que simula el campo de visión del zombi
-    public LayerMask mask;   // Capa de los objetos que el zombi puede ver (por ejemplo, jugador)
-    public Transform player; // Referencia al jugador
-    private NavMeshAgent agent;
+    private Transform player; // Referencia al Transform del jugador
+    public Camera frustum; // Referencia a la cámara
+    public LayerMask mask; // Máscara de capas para el raycast
+    private NavMeshAgent agent; // Referencia al NavMeshAgent
+    private Animator animator; // Referencia al Animator
 
     void Start()
     {
+        // Buscar el GameObject del jugador por su tag
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        }
+
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -47,9 +56,23 @@ public class ZombieMovement : MonoBehaviour
 
                     // Mover el zombi hacia el jugador
                     agent.SetDestination(player.position);
+
+                    // Actualizar el estado de la animación
+                    animator.SetBool("isRunning", true);
+                }
+                else
+                {
+                    // Si el jugador no está visible, detener la animación de caminar
+                    animator.SetBool("isRunning", false);
                 }
             }
         }
+        else
+        {
+            // Si el jugador no está en el frustum, detener la animación de caminar
+            animator.SetBool("isRunning", false);
+        }
+
     }
 
     void DrawFrustum(Camera cam)
