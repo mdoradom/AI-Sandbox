@@ -29,14 +29,15 @@ public class ZombieMovement : MonoBehaviour
 
             // Lanza un raycast desde la cámara hacia el jugador para verificar si hay obstrucciones
             Vector3 direction = (player.position - frustum.transform.position).normalized;
+            float distanceToPlayer = Vector3.Distance(frustum.transform.position, player.position);
             Ray ray = new Ray(frustum.transform.position, direction);
 
             // Dibuja el raycast en la vista de escena (debug)
-            Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.red);
+            Debug.DrawRay(ray.origin, ray.direction * distanceToPlayer, Color.red);
 
             // Realiza el raycast para verificar si el jugador está realmente visible
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, frustum.farClipPlane, mask))
+            if (Physics.Raycast(ray, out hit, distanceToPlayer, mask))
             {
                 Debug.Log($"Raycast hit: {hit.collider.name}");
 
