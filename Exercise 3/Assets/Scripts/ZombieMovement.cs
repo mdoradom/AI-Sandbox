@@ -77,22 +77,33 @@ public class ZombieMovement : MonoBehaviour
 
     void DrawFrustum(Camera cam)
     {
+        float halfHeight = cam.orthographicSize;
+        float halfWidth = halfHeight * cam.aspect;
+
         Vector3[] frustumCorners = new Vector3[4];
-        cam.CalculateFrustumCorners(new Rect(0, 0, 1, 1), cam.farClipPlane, Camera.MonoOrStereoscopicEye.Mono, frustumCorners);
+        frustumCorners[0] = cam.transform.TransformPoint(new Vector3(-halfWidth, -halfHeight, cam.nearClipPlane));
+        frustumCorners[1] = cam.transform.TransformPoint(new Vector3(halfWidth, -halfHeight, cam.nearClipPlane));
+        frustumCorners[2] = cam.transform.TransformPoint(new Vector3(halfWidth, halfHeight, cam.nearClipPlane));
+        frustumCorners[3] = cam.transform.TransformPoint(new Vector3(-halfWidth, halfHeight, cam.nearClipPlane));
 
-        for (int i = 0; i < 4; i++)
-        {
-            frustumCorners[i] = cam.transform.TransformVector(frustumCorners[i]);
-        }
+        Debug.DrawLine(frustumCorners[0], frustumCorners[1], Color.blue);
+        Debug.DrawLine(frustumCorners[1], frustumCorners[2], Color.blue);
+        Debug.DrawLine(frustumCorners[2], frustumCorners[3], Color.blue);
+        Debug.DrawLine(frustumCorners[3], frustumCorners[0], Color.blue);
 
-        Debug.DrawLine(cam.transform.position, cam.transform.position + frustumCorners[0], Color.blue);
-        Debug.DrawLine(cam.transform.position, cam.transform.position + frustumCorners[1], Color.blue);
-        Debug.DrawLine(cam.transform.position, cam.transform.position + frustumCorners[2], Color.blue);
-        Debug.DrawLine(cam.transform.position, cam.transform.position + frustumCorners[3], Color.blue);
+        frustumCorners[0] = cam.transform.TransformPoint(new Vector3(-halfWidth, -halfHeight, cam.farClipPlane));
+        frustumCorners[1] = cam.transform.TransformPoint(new Vector3(halfWidth, -halfHeight, cam.farClipPlane));
+        frustumCorners[2] = cam.transform.TransformPoint(new Vector3(halfWidth, halfHeight, cam.farClipPlane));
+        frustumCorners[3] = cam.transform.TransformPoint(new Vector3(-halfWidth, halfHeight, cam.farClipPlane));
 
-        Debug.DrawLine(cam.transform.position + frustumCorners[0], cam.transform.position + frustumCorners[1], Color.blue);
-        Debug.DrawLine(cam.transform.position + frustumCorners[1], cam.transform.position + frustumCorners[2], Color.blue);
-        Debug.DrawLine(cam.transform.position + frustumCorners[2], cam.transform.position + frustumCorners[3], Color.blue);
-        Debug.DrawLine(cam.transform.position + frustumCorners[3], cam.transform.position + frustumCorners[0], Color.blue);
+        Debug.DrawLine(frustumCorners[0], frustumCorners[1], Color.blue);
+        Debug.DrawLine(frustumCorners[1], frustumCorners[2], Color.blue);
+        Debug.DrawLine(frustumCorners[2], frustumCorners[3], Color.blue);
+        Debug.DrawLine(frustumCorners[3], frustumCorners[0], Color.blue);
+
+        Debug.DrawLine(cam.transform.TransformPoint(new Vector3(-halfWidth, -halfHeight, cam.nearClipPlane)), cam.transform.TransformPoint(new Vector3(-halfWidth, -halfHeight, cam.farClipPlane)), Color.blue);
+        Debug.DrawLine(cam.transform.TransformPoint(new Vector3(halfWidth, -halfHeight, cam.nearClipPlane)), cam.transform.TransformPoint(new Vector3(halfWidth, -halfHeight, cam.farClipPlane)), Color.blue);
+        Debug.DrawLine(cam.transform.TransformPoint(new Vector3(halfWidth, halfHeight, cam.nearClipPlane)), cam.transform.TransformPoint(new Vector3(halfWidth, halfHeight, cam.farClipPlane)), Color.blue);
+        Debug.DrawLine(cam.transform.TransformPoint(new Vector3(-halfWidth, halfHeight, cam.nearClipPlane)), cam.transform.TransformPoint(new Vector3(-halfWidth, halfHeight, cam.farClipPlane)), Color.blue);
     }
 }
