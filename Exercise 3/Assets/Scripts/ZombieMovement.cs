@@ -54,8 +54,12 @@ public class ZombieMovement : MonoBehaviour
                     // Actualizar el estado de la animación
                     animator.SetBool("isRunning", true);
 
-                    // Enviar mensaje a otros zombies
-                    BroadcastMessage("OnPlayerDetected", SendMessageOptions.DontRequireReceiver);
+                    // Llamar al método NotifyPlayerDetected del ZombieManager
+                    ZombieManager manager = FindObjectOfType<ZombieManager>();
+                    if (manager != null)
+                    {
+                        manager.NotifyPlayerDetected();
+                    }
                 }
                 else
                 {

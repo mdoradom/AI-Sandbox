@@ -37,4 +37,13 @@ public class ZombieManager : MonoBehaviour
         }
         return Vector3.zero;
     }
+
+    // Nuevo método para distribuir el mensaje a todos los zombies
+    public void NotifyPlayerDetected()
+    {
+        foreach (Transform zombie in transform)
+        {
+            zombie.SendMessage("OnPlayerDetected", SendMessageOptions.DontRequireReceiver);
+        }
+    }
 }
