@@ -20,7 +20,8 @@ public class ZombieManager : MonoBehaviour
             Vector3 spawnPosition = GetRandomPositionOnNavMesh();
             if (spawnPosition != Vector3.zero)
             {
-                Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
+                GameObject zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
+                zombie.transform.parent = transform; // Set the parent of the instantiated zombie
             }
         }
     }
