@@ -34,8 +34,6 @@ public class ZombieMovement : MonoBehaviour
             playerPositionInViewport.x > 0 && playerPositionInViewport.x < 1 &&
             playerPositionInViewport.y > 0 && playerPositionInViewport.y < 1)
         {
-            Debug.Log("Player is within the camera frustum");
-
             // Lanza un raycast desde la cámara hacia el jugador para verificar si hay obstrucciones
             Vector3 direction = (player.position - frustum.transform.position).normalized;
             float distanceToPlayer = Vector3.Distance(frustum.transform.position, player.position);
@@ -48,17 +46,16 @@ public class ZombieMovement : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, distanceToPlayer, mask))
             {
-                Debug.Log($"Raycast hit: {hit.collider.name}");
-
                 if (hit.collider.CompareTag("Player"))
                 {
-                    Debug.Log("Player is detected by the zombie");
-
                     // Mover el zombi hacia el jugador
                     agent.SetDestination(player.position);
 
                     // Actualizar el estado de la animación
                     animator.SetBool("isRunning", true);
+
+                    // Enviar mensaje a otros zombies
+                    BroadcastMessage("OnPlayerDetected", SendMessageOptions.DontRequireReceiver);
                 }
                 else
                 {
@@ -72,7 +69,6 @@ public class ZombieMovement : MonoBehaviour
             // Si el jugador no está en el frustum, detener la animación de caminar
             animator.SetBool("isRunning", false);
         }
-
     }
 
     void DrawFrustum(Camera cam)
@@ -105,5 +101,17 @@ public class ZombieMovement : MonoBehaviour
         Debug.DrawLine(cam.transform.TransformPoint(new Vector3(halfWidth, -halfHeight, cam.nearClipPlane)), cam.transform.TransformPoint(new Vector3(halfWidth, -halfHeight, cam.farClipPlane)), Color.blue);
         Debug.DrawLine(cam.transform.TransformPoint(new Vector3(halfWidth, halfHeight, cam.nearClipPlane)), cam.transform.TransformPoint(new Vector3(halfWidth, halfHeight, cam.farClipPlane)), Color.blue);
         Debug.DrawLine(cam.transform.TransformPoint(new Vector3(-halfWidth, halfHeight, cam.nearClipPlane)), cam.transform.TransformPoint(new Vector3(-halfWidth, halfHeight, cam.farClipPlane)), Color.blue);
+    }
+
+    // Método para manejar mensajes de detección de jugador
+    public void OnPlayerDetected()
+    {
+        Debug.Log("Received player detected message");
+
+        // Mover el zombi hacia el jugador
+        agent.SetDestination(player.position);
+
+        // Actualizar el estado de la animación
+        animator.SetBool("isRunning", true);
     }
 }
