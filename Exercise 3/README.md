@@ -26,7 +26,7 @@ Your scene should include a group of AI zombies 🧟‍♂️🧟‍♀️ that 
  
 ## The Exercise
 
-Bla bla bla
+In this exercise, we have created a Unity scene with a map that contains various elements and obstacles where the player character can move and hide. We have also implemented a script that acts as a zombie manager, allowing us to choose how many zombies to spawn in the scene. Using Unity’s NavMesh system for pathfinding, along with a Raycast for line-of-sight detection, the zombies will follow the player when they enter a specified range. The player must navigate the environment, using obstacles and hiding spots to avoid the zombies' pursuit.
 
 ### Controls
 
