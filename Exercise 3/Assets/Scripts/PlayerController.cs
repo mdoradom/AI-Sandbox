@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
                 MoveToRandomPosition();
             }
         }
+
+        // Actualizar el estado de la animación
+        UpdateAnimation();
     }
 
     void MoveToRandomPosition()
@@ -34,6 +37,7 @@ public class PlayerController : MonoBehaviour
         if (randomPosition != Vector3.zero)
         {
             agent.SetDestination(randomPosition);
+            animator.SetBool("isRunning", true); // Set isRunning to true when moving
         }
     }
 
@@ -47,5 +51,17 @@ public class PlayerController : MonoBehaviour
             return hit.position;
         }
         return Vector3.zero;
+    }
+
+    void UpdateAnimation()
+    {
+        // Set isRunning to false if the agent is not moving
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        {
+            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            {
+                animator.SetBool("isRunning", false);
+            }
+        }
     }
 }
