@@ -40,11 +40,13 @@ public class ZombieMovement : MonoBehaviour
             Ray ray = new Ray(frustum.transform.position, direction);
 
             // Dibuja el raycast en la vista de escena (debug)
-            Debug.DrawRay(ray.origin, ray.direction * distanceToPlayer, Color.red);
+            Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.red);
+
+            Debug.Log(distanceToPlayer);
 
             // Realiza el raycast para verificar si el jugador está realmente visible
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, distanceToPlayer, mask))
+            if (Physics.Raycast(ray, out hit, frustum.farClipPlane, mask))
             {
                 if (hit.collider.CompareTag("Player"))
                 {
