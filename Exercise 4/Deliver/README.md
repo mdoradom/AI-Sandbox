@@ -1,32 +1,38 @@
-# Exercise 3
+# Exercise 4
 
 ## Objective
 
->In this lab, you will create a Unity scene that replicates the Zombie Scene from slide 11 of the "World Interfacing & Knowledge" section. The goal is to implement zombies using AI principles and techniques that handle perception, communication, and interaction. You will also enhance the scene with clean coding practices and optimizations.
+>In this lab, you will simulate the robber behavior observed in Slide 12 of the "Decision Making" section using Finite State Machines (FSMs). This exercise is designed to deepen understanding of FSMs and how decision-making structures are applied in AI for character behaviors.
 
 ## Scene Setup
 
-Your scene should include a group of AI zombies 🧟‍♂️🧟‍♀️ that exhibit the following behaviors:
+You can choose between two methods to complete the lab, each focusing on implementing the robber’s behavior in Unity:
 
-- **Zombie Prefab 🧟‍♂️:** All zombies must be instantiated from a single, reusable prefab. This prefab will handle both visual elements and behavior to ensure consistency.
+1. **Delegate-Based FSM (Slide 12)**
 
-- **Zombie Perception (Camera Frustum) 👁️:** Use the camera frustum to simulate zombie perception. Zombies should detect when they enter the player's view and react accordingly (e.g., begin chasing the player or change behavior).
+    Utilize delegate-based FSMs, focusing on modular state transitions and maximizing code reusability.
 
-- **Zombie Communication 📡:** Utilize Unity’s BroadcastMessage method to allow zombies to communicate with one another. For instance, if one zombie detects the player, it should broadcast a message to nearby zombies, triggering them to act as well.
+2. **Unity Animation FSM (Slide 14)**
+
+    Implement the FSM using Unity’s animation system to visually represent state transitions between different behaviors.
 
 ## Deliverables:
 
-- **Unity Package 📦:** Submit the full Unity project, including the scene, scripts, and any assets you used.
+1. **UnityPackage 📦**
 
-- **Video 📹:** Record a video showcasing the Zombie Scene. Make sure to:
-    - Explain how the zombie prefab was implemented.
-    - Demonstrate the zombies' use of the camera frustum for perception 👁️.
-    - Highlight how zombies communicate with each other using BroadcastMessage 📡.
-    - Showcase any additional creative elements or optimizations in your scene.
+Export the project as a UnityPackage, ensuring all FSM scripts, animations (if used), and necessary assets are included.
+
+2. **Video Demonstration 📹**
+
+Record a video demonstrating the FSM in action. The video should clearly:
+
+- Show the robber's transitions between states.
+
+- Demonstrate how each state responds to conditions in the scene.
  
 ## The Exercise
 
-Bla bla bla
+In this exercise, we refractored the previous exercise to wrap all the logic of the zombie detection and player movement to be controller via a FSM.
 
 ### Controls
 
