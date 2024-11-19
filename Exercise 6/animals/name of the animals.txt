@@ -2,7 +2,7 @@ raccoon
 penguin
 parrot
 panda
-lbster
+lobster
 goat
 duck
 dog
