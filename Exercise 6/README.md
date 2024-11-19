@@ -40,10 +40,10 @@ The results of the experiments are summarized in the following sections. For eac
 
 > This test explores the impact of a **high learning rate** (0.1) on training with **few epochs** (10) and a **small batch size** (32). The aim is to evaluate if the model can converge quickly with such an aggressive learning rate and limited epochs, but also to see if it might lead to instability or suboptimal performance due to the large update steps in each iteration.
 
-- **Training Accuracy**: 85.2%
-- **Validation Accuracy**: 82.5%
-- **Training Loss**: 0.50
-- **Validation Loss**: 0.60
+- **Training Accuracy**: 27.8%
+- **Validation Accuracy**:  20.8%
+- **Training Loss**: 1.82
+- **Validation Loss**: 1.95
 
 #### Training and Validation Accuracy Plot:
 ![Training and Validation Accuracy](assets/graph1.png)
@@ -55,16 +55,18 @@ The results of the experiments are summarized in the following sections. For eac
 
 Ha tardado mucho en entrenar? Es accurated? etc
 
+Posible Underfitting: precisión de validación por debajo del 60%. Ha tardado 10 minutos.
+
 ---
 
 ### Test 2: Learning Rate = 0.01, Epochs = 50, Batch Size = 64
 
 > This test examines the behavior of the model with a **moderate learning rate** (0.01) and a **larger number of epochs** (50) for training. A **medium batch size** (64) is used to balance training speed and stability. The objective is to see if a smaller learning rate combined with more epochs helps the model converge more smoothly and reach higher accuracy without overfitting.
 
-- **Training Accuracy**: 92.0%
-- **Validation Accuracy**: 89.5%
-- **Training Loss**: 0.25
-- **Validation Loss**: 0.38
+- **Training Accuracy**: 94.4%
+- **Validation Accuracy**: 81.2%
+- **Training Loss**: 0.22
+- **Validation Loss**: 0.57
 
 #### Training and Validation Accuracy Plot:
 ![Training and Validation Accuracy](assets/graph2.png)
@@ -76,7 +78,7 @@ Ha tardado mucho en entrenar? Es accurated? etc
 
 Ha tardado mucho en entrenar? Es accurated? etc
 
----
+El modelo parece estar entrenado correctamente. Ha tardado 45 minutos con 37 segundos.
 
 ### Test 3: Learning Rate = 0.001, Epochs = 50, Batch Size = 128
 
@@ -96,6 +98,8 @@ Ha tardado mucho en entrenar? Es accurated? etc
 #### Conclusion
 
 Ha tardado mucho en entrenar? Es accurated? etc
+
+El modelo parece estar entrenado correctamente. Ha tardado 42 minutos y 36 minutos.
 
 ---
 
