@@ -1,22 +1,40 @@
 # Model Hyperparameter Testing and Evaluation
 
-In this document, we outline the experiments conducted to evaluate the performance of a neural network model by testing different hyperparameters. The goal is to assess how varying the learning rate, number of epochs, and batch size affects the model's accuracy and loss.
+- Mario Dorado Martínez
+- Marta Jover Valero
+
+In this document, we outline the experiments conducted to evaluate the performance of a neural network model by testing different hyperparameters. The goal is to assess how varying the `learning rate`, number of `epochs`, and `batch size` affects the model's _accuracy_ and _loss_.
 
 ## 1. Hyperparameters Tested
 
 The following hyperparameters were tested in our experiments:
 
 ### Learning Rate
-- **Description**: The learning rate determines the size of the steps the optimizer takes during training. A small learning rate might slow down the training, while a large learning rate could result in overshooting the optimal solution.
-- **Values tested**: `0.1`, `0.01`, `0.001`
+
+The learning rate determines the size of the steps the optimizer takes during training. A small learning rate might slow down the training, while a large learning rate could result in overshooting the optimal solution.
+
+- **Values tested**: 
+    - `0.1`
+    - `0.01`
+    - `0.001`
 
 ### Epochs
-- **Description**: The number of epochs indicates how many times the model will go through the entire training dataset.
-- **Values tested**: `10`, `20`, `50`
+
+The number of epochs indicates how many times the model will go through the entire training dataset.
+
+- **Values tested**: 
+    - `10`
+    - `20`
+    - `50`
 
 ### Batch Size
-- **Description**: The batch size controls how many samples are processed before updating the model weights.
-- **Values tested**: `32`, `64`, `128`
+
+The batch size controls how many samples are processed before updating the model weights.
+
+- **Values tested**:
+    - `32`
+    - `64`
+    - `128`
 
 ## 2. Experiment Setup
 
@@ -25,7 +43,7 @@ For each combination of these hyperparameters, the model was trained and evaluat
 - **Training accuracy** and **validation accuracy**
 - **Training loss** and **validation loss**
 
-Each experiment was repeated to ensure robustness and to avoid overfitting or random fluctuations in performance. 
+Each experiment was repeated to ensure robustness and to avoid `overfitting` or `random fluctuations` in performance. 
 
 ## 3. Results Overview
 
@@ -53,9 +71,8 @@ The results of the experiments are summarized in the following sections. For eac
 
 #### Conclusion
 
-Ha tardado mucho en entrenar? Es accurated? etc
-
-Posible Underfitting: precisión de validación por debajo del 60%. Ha tardado 10 minutos.
+- The model has been training for 10 minutes.
+- Posible Underfitting: validation accuracy below 60%.
 
 ---
 
@@ -76,9 +93,8 @@ Posible Underfitting: precisión de validación por debajo del 60%. Ha tardado 1
 
 #### Conclusion
 
-Ha tardado mucho en entrenar? Es accurated? etc
-
-El modelo parece estar entrenado correctamente. Ha tardado 45 minutos con 37 segundos.
+- The model has been training for 45 minutes and 37 seconds.
+- The model seems to be well fitted.
 
 ### Test 3: Learning Rate = 0.001, Epochs = 50, Batch Size = 128
 
@@ -97,10 +113,41 @@ El modelo parece estar entrenado correctamente. Ha tardado 45 minutos con 37 seg
 
 #### Conclusion
 
-Ha tardado mucho en entrenar? Es accurated? etc
-
-El modelo parece estar entrenado correctamente. Ha tardado 42 minutos y 36 minutos.
+- The model has been training for 42 minutes and 36 seconds.
+- The model seems to be well fitted.
 
 ---
 
 ## 5. Conclusion
+
+Based on the hyperparameter testing, we observed the following trends and insights:
+
+### Learning Rate:
+
+A high learning rate (0.1) leads to faster training but increases the risk of instability and poor convergence, as seen in Test 1. This resulted in low accuracy and high loss, indicative of underfitting.
+
+A moderate learning rate (0.01) provided a balance between training speed and model performance. It allowed the model to converge effectively within 50 epochs without overfitting, as shown in Test 2.
+
+A low learning rate (0.001) enabled more gradual and stable convergence, achieving the highest validation accuracy (90.2%) in Test 3. However, the training process was slower compared to a moderate learning rate.
+
+### Epochs:
+
+Fewer epochs (10) were insufficient for the model to learn complex patterns, especially with a high learning rate, leading to poor generalization.
+
+Increasing the number of epochs (50) allowed the model to achieve better performance, particularly with lower learning rates, as it had more opportunities to refine the weights and reduce loss.
+
+### Batch Size:
+
+Smaller batch sizes (32) provided noisier gradient updates but were computationally more intensive for the same number of epochs, resulting in slower training times.
+
+Medium batch sizes (64) offered a good trade-off between stability and training efficiency, as evidenced in Test 2.
+
+Larger batch sizes (128) sped up training by processing more data per update but required a carefully tuned learning rate to prevent poor generalization. Test 3 demonstrated that with an appropriately low learning rate, a larger batch size can achieve excellent results.
+
+### Final Recommendations
+
+For faster convergence with good performance, learning rate = 0.01, epochs = 50, and batch size = 64 are recommended.
+
+For optimal performance with more computational resources, learning rate = 0.001, epochs = 50, and batch size = 128 provide the best results, as seen in Test 3.
+
+Avoid using a high learning rate (0.1) unless the dataset and model architecture can tolerate it, as it often leads to instability and underfitting.
