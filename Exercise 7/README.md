@@ -34,19 +34,10 @@ To complete this lab, follow these steps:
  
 ## The Exercise
 
-You can download the Unity Package in this link. It should be a scene with ocean skybox.
-
-### Controls
-
-- Movement: WASD to move the camera
-- Up / Down: SPACE & CTRL to go up and down
-- Sprint: SHIFT to move faster
-
 ### Requeriments
 
 - Unity 2022.3.33f1
 - Project with URP Core
-- AI Navigation package installed
     
 ### Autors
  - [Mario Dorado Martínez](https://github.com/mdoradom)
